@@ -1,4 +1,4 @@
-# Ti Saude Insurance Web (insurance)
+# Insurance Web (insurance)
 
 interface de saúde da Ti sude desenvolvida por Paulo Matos
 
