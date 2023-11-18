@@ -1,6 +1,6 @@
 # Insurance Web (insurance)
 
-interface de saúde da Ti sude desenvolvida por Paulo Matos
+interface de saúde da Ti saúde desenvolvida por Paulo Matos
 
 ## Install the dependencies
 ```bash
