@@ -42,9 +42,17 @@
 <script lang="ts">
 import axios from 'axios'
 import { defineComponent } from 'vue'
+import { useRouter } from 'vue-router'
 
 export default defineComponent({
   name: 'ListUsersPage',
+  setup () {
+    const router = useRouter()
+
+    return {
+      router
+    }
+  },
   data () {
     return {
       users: [
@@ -62,12 +70,7 @@ export default defineComponent({
   },
   methods: {
     editUser (userId: number) {
-      // Lógica para editar o usuário com o ID fornecido
-      console.log('Editar usuário:', userId)
-    },
-    deleteUser (userId: number) {
-      // Lógica para deletar o usuário com o ID fornecido
-      console.log('Deletar usuário:', userId)
+      this.router.push(`/user/edit/${userId}`)
     },
     async fetchData () {
       try {
@@ -76,6 +79,15 @@ export default defineComponent({
         console.log(response)
       } catch (error) {
         console.log(error)
+      }
+    },
+    async deleteUser (userId: number) {
+      try {
+        await axios.delete(`http://localhost:8000/users/${userId}`)
+        this.fetchData() // Atualiza a lista após a exclusão
+        console.log('Usuário deletado com sucesso:')
+      } catch (error) {
+        console.error('Erro ao deletar usuário:', error)
       }
     }
   }

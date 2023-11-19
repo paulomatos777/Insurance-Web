@@ -14,8 +14,8 @@ const routes: RouteRecordRaw[] = [
         component: () => import('pages/UserPage.vue')
       },
       {
-        path: '/users/edit/:id',
-        component: () => import('pages/ListUsersPage.vue')
+        path: '/user/edit/:id',
+        component: () => import('pages/EditUserPage.vue')
       }
     ]
   },
