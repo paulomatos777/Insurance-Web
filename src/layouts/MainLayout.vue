@@ -1,6 +1,6 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
+  <q-layout view="lHh Lpr lFf" >
+    <q-header elevated class="layout-definition" >
       <q-toolbar>
         <q-btn
           flat
@@ -12,23 +12,21 @@
         />
 
         <q-toolbar-title>
-          Ti Saúde Insurance Web
+          Desafio Ti Saúde (By Paulo Matos)
         </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
       </q-toolbar>
     </q-header>
 
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-    >
-      <q-list>
-        <q-item-label
-          header
+    i<q-drawer
+          v-model="leftDrawerOpen"
+          show-if-above
+          bordered
         >
-          Essential Links
+          <q-list>
+            <q-item-label
+              header
+            >
+              Ações
         </q-item-label>
 
         <EssentialLink
@@ -49,48 +47,20 @@
 import { defineComponent, ref } from 'vue'
 import EssentialLink from 'components/EssentialLink.vue'
 
+const localhost = window.location.protocol + '//' + window.location.hostname + ':' + window.location.port
+
 const linksList = [
   {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
+    title: 'Criar Usuário',
+    caption: '',
+    icon: 'add',
+    link: `${localhost}/#/user/create`
   },
   {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
-  },
-  {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
+    title: 'Lista de Usuários',
+    caption: '',
+    icon: 'list',
+    link: `${localhost}/#/users`
   }
 ]
 
@@ -114,3 +84,15 @@ export default defineComponent({
   }
 })
 </script>
+
+<style lang="scss" scoped>
+.layout-definition {
+  background-color: #590082;
+}
+
+q-toolbar-title {
+  display: flex;
+  align-items: center;
+}
+
+</style>
